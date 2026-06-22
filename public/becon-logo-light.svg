@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 96" role="img" aria-label="BeCon">
+  <defs>
+    <linearGradient id="beconGradLight" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#4DBEFA"/>
+      <stop offset="35%" stop-color="#2C7FF0"/>
+      <stop offset="65%" stop-color="#1F66E8"/>
+      <stop offset="100%" stop-color="#1426A8"/>
+    </linearGradient>
+  </defs>
+  <g font-family="Inter Tight, Inter, -apple-system, BlinkMacSystemFont, sans-serif" font-weight="800" font-size="84" letter-spacing="-3">
+    <text x="0" y="74" fill="#FFFFFF">Be</text>
+    <text x="118" y="74" fill="url(#beconGradLight)">Con</text>
+  </g>
+</svg>

@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────────────────────────
+   DESIGN TOKENS — runtime CSS variables.
+   Mirror of tailwind.config.ts colors. Use vars for runtime
+   theming (e.g. dynamic gradients, motion); use Tailwind classes
+   for everything else.
+   ───────────────────────────────────────────────────────────── */
+:root {
+  /* Ink + neutrals */
+  --ink: #0a0b0e;
+  --ink-2: #15171c;
+  --gray-100: #efefec;
+  --gray-200: #e1e3e7;
+  --gray-300: #c7c9ce;
+  --gray-500: #6e7079;
+  --gray-700: #3f4148;
+  --gray-900: #1f2128;
+  --paper: #f7f6f2;
+  --white: #ffffff;
+
+  /* Blues — electric royal (from the BeCon logo) */
+  --navy: #060b3a;
+  --navy-2: #0b1456;
+  --blue-100: #e6f0fe;
+  --blue-200: #c2dbfa;
+  --blue-300: #6cb8f5;
+  --blue-400: #3d85ed;
+  --blue-500: #1f66e8;
+  --blue-600: #1948c7;
+  --blue-700: #1426a8;
+  --blue-800: #0e1689;
+
+  /* Cyan — light end of the logo gradient */
+  --cyan: #4dbefa;
+  --cyan-soft: #9bdbfc;
+
+  /* Wordmark gradient — used for "Con" span and key moments */
+  --logo-gradient: linear-gradient(90deg, #4dbefa 0%, #2c7ff0 35%, #1f66e8 65%, #1426a8 100%);
+
+  /* Orange — primary accent */
+  --orange-100: #fce3d2;
+  --orange-200: #fbc9a8;
+  --orange-300: #f58f47;
+  --orange-400: #f26b1f;
+  --orange-500: #e85d04;
+  --orange-600: #c8480f;
+  --orange-700: #a53a05;
+
+  /* Elevation */
+  --shadow-sm: 0 1px 2px rgba(10, 11, 14, 0.04), 0 1px 1px rgba(10, 11, 14, 0.03);
+  --shadow-md: 0 1px 2px rgba(10, 11, 14, 0.04), 0 8px 24px -8px rgba(10, 11, 14, 0.08);
+  --shadow-lg: 0 2px 4px rgba(10, 11, 14, 0.05), 0 18px 40px -10px rgba(10, 11, 14, 0.12);
+
+  /* Layout */
+  --max-container: 1200px;
+}
+
+/* ─── Base ─── */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-feature-settings: "ss01", "cv11";
+}
+
+/* Respect reduced-motion preference globally */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Focus ring — visible, on-brand, accessible */
+*:focus-visible {
+  outline: 2px solid var(--orange-500);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ─── Section background utilities ──────────────────────────── */
+@layer components {
+  .section {
+    padding-block: 5rem;
+    padding-inline: max(1.5rem, calc((100% - var(--max-container)) / 2));
+  }
+  .container-x {
+    max-width: var(--max-container);
+    margin-inline: auto;
+  }
+
+  /* Section background tokens. Each pairs background + the
+     text/eyebrow color shifts required for AA contrast. */
+  .bg-section-paper {
+    background: var(--paper);
+    color: var(--ink);
+  }
+  .bg-section-white {
+    background: var(--white);
+    color: var(--ink);
+  }
+  .bg-section-peach {
+    background: var(--orange-100);
+    color: var(--ink);
+  }
+  .bg-section-orange-mid {
+    background: var(--orange-200);
+    color: var(--ink);
+  }
+  .bg-section-orange {
+    background: var(--orange-400);
+    color: var(--ink);
+  }
+  .bg-section-blue {
+    background: var(--blue-100);
+    color: var(--ink);
+  }
+  .bg-section-blue-mid {
+    background: var(--blue-200);
+    color: var(--ink);
+  }
+  .bg-section-blue-bold {
+    background: var(--blue-500);
+    color: var(--white);
+  }
+  .bg-section-blue-deep {
+    background: var(--blue-700);
+    color: var(--white);
+  }
+  .bg-section-navy {
+    background: var(--navy);
+    color: var(--white);
+  }
+  .bg-section-ink {
+    background: var(--ink);
+    color: var(--white);
+  }
+}
