@@ -8,8 +8,36 @@ import { CloseCta } from "@/components/site/close-cta";
 import { Section } from "@/components/ui/section";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Card } from "@/components/ui/card";
+import { headers } from "next/headers";
+import type { Metadata } from "next";
+import { isRxHost } from "@/lib/brand";
+import RxPage from "./rx/page";
 
-export default function HomePage() {
+/**
+ * Host-aware root route. becongroup.io renders the BeConGroup home; beconrx.io
+ * renders the BeConRx page at its own domain root. Host-aware here (rather than
+ * a middleware rewrite) so client-side navigation to "/" also renders the right
+ * brand.
+ */
+export default async function Page() {
+  const isRx = isRxHost((await headers()).get("host"));
+  return isRx ? <RxPage /> : <GroupHome />;
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const isRx = isRxHost((await headers()).get("host"));
+  if (isRx) {
+    return {
+      title: "Intelligence-led healthcare communications",
+      description:
+        "Connecting medical, market, and competitive signals to brand strategy, market activation, and the outcomes that drive business.",
+      alternates: { canonical: "/" },
+    };
+  }
+  return { alternates: { canonical: "/" } };
+}
+
+function GroupHome() {
   return (
     <main>
       {/* ───── HERO ───────────────────────────────────────────── */}
