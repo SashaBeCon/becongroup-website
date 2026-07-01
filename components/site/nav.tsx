@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { Logo } from "./logo";
@@ -18,15 +17,15 @@ const GROUP_LINKS: NavLink[] = [
   { href: "/#system", label: "The System" },
   { href: "/#how", label: "How We Work" },
   { href: "/#build", label: "What We Build" },
-  { href: "/rx", label: "BeCon Rx", external: true },
+  { href: "https://www.beconrx.io", label: "BeCon Rx", external: true },
 ];
 
 const RX_LINKS: NavLink[] = [
-  { href: "/rx#model", label: "The Model" },
-  { href: "/rx#engage", label: "How Clients Engage" },
-  { href: "/rx#deliver", label: "What We Deliver" },
-  { href: "/rx#why", label: "Why BeCon Rx" },
-  { href: "/", label: "BeCon Group", external: true },
+  { href: "/#model", label: "The Model" },
+  { href: "/#engage", label: "How Clients Engage" },
+  { href: "/#deliver", label: "What We Deliver" },
+  { href: "/#why", label: "Why BeCon Rx" },
+  { href: "https://www.becongroup.io", label: "BeCon Group", external: true },
 ];
 
 interface NavProps {
@@ -53,15 +52,14 @@ function ExternalIcon({ className }: { className?: string }) {
 }
 
 /**
- * Sticky top navigation. Auto-switches between BeCon Group and BeCon Rx
- * link sets based on the current pathname. Client component (mobile drawer).
+ * Sticky top navigation. Shows the BeCon Group or BeCon Rx link set based on
+ * the `brand` passed by the root layout (derived from hostname). Client
+ * component (mobile drawer).
  */
 export function Nav({ variant = "overlay", brand }: NavProps) {
   const [open, setOpen] = useState(false);
-  const pathname = usePathname();
 
-  const resolvedBrand =
-    brand ?? (pathname?.startsWith("/rx") ? "rx" : "group");
+  const resolvedBrand = brand ?? "group";
   const links = resolvedBrand === "rx" ? RX_LINKS : GROUP_LINKS;
 
   const isOverlay = variant === "overlay";
