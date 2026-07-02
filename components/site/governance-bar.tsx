@@ -1,23 +1,19 @@
 interface GovernanceBarProps {
   label: string;
-  quote: string;
-  body: string;
+  /** JSX with <span className="focal"> or <span className="orange"> for emphasis. */
+  quote: React.ReactNode;
+  body?: React.ReactNode;
 }
 
-/**
- * Dark callout band used to anchor the System section.
- * Label + pull-quote on the left, expanded body copy on the right.
- */
+/** Focal-burst principle inner — sits inside <section className="section principle">. */
 export function GovernanceBar({ label, quote, body }: GovernanceBarProps) {
   return (
-    <div className="grid gap-8 rounded-lg bg-ink p-10 shadow-md md:grid-cols-2">
-      <div>
-        <p className="text-eyebrow uppercase text-orange-400 mb-3">{label}</p>
-        <blockquote className="text-h3 font-semibold leading-snug text-white">
-          “{quote}”
-        </blockquote>
+    <div className="inner">
+      <div className="eyebrow center">
+        <b>{label}</b>
       </div>
-      <p className="text-body text-white/55 leading-relaxed">{body}</p>
+      <div className="quote">{quote}</div>
+      {body ? <p className="sub">{body}</p> : null}
     </div>
   );
 }

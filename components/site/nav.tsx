@@ -2,14 +2,11 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { cn } from "@/lib/utils";
 import { Logo } from "./logo";
-import { Button } from "@/components/ui/button";
 
 interface NavLink {
   href: string;
   label: string;
-  /** Open in a new window with rel=noopener noreferrer + external-link icon. */
   external?: boolean;
 }
 
@@ -29,158 +26,68 @@ const RX_LINKS: NavLink[] = [
 ];
 
 interface NavProps {
-  variant?: "solid" | "overlay";
   brand?: "group" | "rx";
 }
 
-function ExternalIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 16 16"
-      className={cn("ml-1 inline-block h-3 w-3", className)}
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M6 3h7m0 0v7m0-7L7 9" />
-      <path d="M11 9.5V13a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h3.5" />
-    </svg>
-  );
-}
-
-/**
- * Sticky top navigation. Shows the BeCon Group or BeCon Rx link set based on
- * the `brand` passed by the root layout (derived from hostname). Client
- * component (mobile drawer).
- */
-export function Nav({ variant = "overlay", brand }: NavProps) {
+export function Nav({ brand = "group" }: NavProps) {
   const [open, setOpen] = useState(false);
+  const links = brand === "rx" ? RX_LINKS : GROUP_LINKS;
+  const ctaLabel = brand === "rx" ? "Start the conversation" : "Start a conversation";
 
-  const resolvedBrand = brand ?? "group";
-  const links = resolvedBrand === "rx" ? RX_LINKS : GROUP_LINKS;
-
-  const isOverlay = variant === "overlay";
-  // Darker starting bg (closer to ink) so nav reads as a confident dark band
-  // even before scroll.
-  const wrapClass = cn(
-    "sticky top-0 z-50 w-full",
-    isOverlay
-      ? "bg-ink/85 border-b border-white/10 backdrop-blur supports-[backdrop-filter]:bg-ink/75"
-      : "bg-paper/95 border-b border-ink/8 backdrop-blur supports-[backdrop-filter]:bg-paper/85",
-  );
-  const linkClass = cn(
-    "text-small font-medium transition-colors",
-    isOverlay ? "text-white/90 hover:text-white" : "text-ink/85 hover:text-ink",
-  );
-
-  const renderLink = (l: NavLink, onClickClose?: () => void) => {
-    const content = (
-      <>
-        {l.label}
-        {l.external ? <ExternalIcon /> : null}
-      </>
-    );
+  const renderLink = (l: NavLink, onClick?: () => void) => {
     if (l.external) {
       return (
-        <a
-          href={l.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={onClickClose}
-          className={linkClass}
-        >
-          {content}
+        <a href={l.href} target="_blank" rel="noopener noreferrer" className="ext" onClick={onClick}>
+          {l.label} <span aria-hidden="true">↗</span>
         </a>
       );
     }
     return (
-      <Link href={l.href} onClick={onClickClose} className={linkClass}>
-        {content}
+      <Link href={l.href} onClick={onClick}>
+        {l.label}
       </Link>
     );
   };
 
   return (
-    <nav className={wrapClass} aria-label="Primary">
-      <div className="mx-auto flex h-16 max-w-container items-center justify-between px-6 md:px-10">
-        <Logo brand={resolvedBrand} tone={isOverlay ? "light" : "dark"} />
+    <nav className="nav" aria-label="Primary">
+      <Logo brand={brand} />
 
-        <ul className="hidden items-center gap-7 md:flex">
-          {links.map((l) => (
-            <li key={l.href + l.label}>{renderLink(l)}</li>
-          ))}
-          <li>
-            <Button
-              href="/contact"
-              variant={isOverlay ? "accent" : "primary"}
-              size="sm"
-            >
-              Start a conversation
-            </Button>
-          </li>
-        </ul>
+      <ul className="nav-links">
+        {links.map((l) => (
+          <li key={l.href + l.label}>{renderLink(l)}</li>
+        ))}
+        <li>
+          <Link href="/contact" className="nav-cta">
+            {ctaLabel}
+          </Link>
+        </li>
+      </ul>
 
-        <button
-          type="button"
-          aria-expanded={open}
-          aria-controls="mobile-menu"
-          aria-label={open ? "Close menu" : "Open menu"}
-          onClick={() => setOpen((v) => !v)}
-          className={cn(
-            "md:hidden inline-flex h-10 w-10 items-center justify-center rounded-md",
-            isOverlay ? "text-white" : "text-ink",
-          )}
-        >
-          <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
-          <span aria-hidden="true" className="relative block h-3 w-5">
-            <span
-              className={cn(
-                "absolute left-0 top-0 block h-0.5 w-full bg-current transition-transform",
-                open && "translate-y-1.5 rotate-45",
-              )}
-            />
-            <span
-              className={cn(
-                "absolute left-0 bottom-0 block h-0.5 w-full bg-current transition-transform",
-                open && "-translate-y-1.5 -rotate-45",
-              )}
-            />
-          </span>
-        </button>
-      </div>
-
-      <div
-        id="mobile-menu"
-        hidden={!open}
-        className={cn(
-          "md:hidden border-t",
-          isOverlay ? "bg-ink/95 border-white/10 text-white" : "bg-paper border-ink/8",
-        )}
+      <button
+        type="button"
+        className="nav-burger"
+        aria-expanded={open}
+        aria-label={open ? "Close menu" : "Open menu"}
+        onClick={() => setOpen((v) => !v)}
       >
-        <ul className="flex flex-col gap-1 px-6 py-4">
-          {links.map((l) => (
-            <li key={l.href + l.label}>
-              <div className={cn("block rounded-md px-3 py-3 text-body font-medium", isOverlay ? "text-white/90 hover:bg-white/5" : "text-ink/90 hover:bg-ink/5")}>
-                {renderLink(l, () => setOpen(false))}
-              </div>
+        <span aria-hidden="true">{open ? "✕" : "☰"}</span>
+      </button>
+
+      {open ? (
+        <div className="nav-drawer">
+          <ul>
+            {links.map((l) => (
+              <li key={l.href + l.label}>{renderLink(l, () => setOpen(false))}</li>
+            ))}
+            <li>
+              <Link href="/contact" className="nav-cta" onClick={() => setOpen(false)}>
+                {ctaLabel}
+              </Link>
             </li>
-          ))}
-          <li className="pt-3">
-            <Button
-              href="/contact"
-              variant="accent"
-              size="default"
-              className="w-full"
-              onClick={() => setOpen(false)}
-            >
-              Start a conversation
-            </Button>
-          </li>
-        </ul>
-      </div>
+          </ul>
+        </div>
+      ) : null}
     </nav>
   );
 }

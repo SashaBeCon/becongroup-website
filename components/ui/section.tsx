@@ -1,5 +1,4 @@
 import { cn } from "@/lib/utils";
-import { Container } from "./container";
 
 export type SectionBackground =
   | "paper"
@@ -12,69 +11,65 @@ export type SectionBackground =
   | "blue-bold"
   | "blue-deep"
   | "navy"
-  | "ink";
+  | "ink"
+  | "page"
+  | "band"
+  | "band2"
+  | "floor";
 
 const BG_CLASS: Record<SectionBackground, string> = {
-  paper: "bg-section-paper",
-  white: "bg-section-white",
-  peach: "bg-section-peach",
-  "orange-mid": "bg-section-orange-mid",
-  orange: "bg-section-orange",
-  blue: "bg-section-blue",
-  "blue-mid": "bg-section-blue-mid",
-  "blue-bold": "bg-section-blue-bold",
-  "blue-deep": "bg-section-blue-deep",
-  navy: "bg-section-navy",
-  ink: "bg-section-ink",
+  paper: "sec-page",
+  page: "sec-page",
+  white: "sec-white",
+  peach: "sec-band",
+  "orange-mid": "sec-band",
+  orange: "sec-band",
+  blue: "sec-band",
+  "blue-mid": "sec-band",
+  "blue-bold": "sec-band",
+  "blue-deep": "sec-floor",
+  navy: "sec-floor",
+  ink: "sec-floor",
+  band: "sec-band",
+  band2: "sec-band2",
+  floor: "sec-floor",
+};
+
+const SIZE_PAD: Record<"default" | "lg" | "sm", string | undefined> = {
+  default: undefined,
+  lg: "116px",
+  sm: "56px",
 };
 
 interface SectionProps extends React.HTMLAttributes<HTMLElement> {
-  /** Section background variant. Each pairs background + text-color rules in globals.css. */
   bg?: SectionBackground;
-  /** Render with extra top/bottom padding for hero or close sections. */
   size?: "default" | "lg" | "sm";
-  /** Skip the auto Container wrapper (when you want a full-bleed inner layout). */
+  /** Skip the inner max-width wrapper. */
   bare?: boolean;
 }
 
-const SIZE_CLASS: Record<NonNullable<SectionProps["size"]>, string> = {
-  default: "py-section-y",
-  lg: "py-32",
-  sm: "py-16",
-};
-
-/**
- * Section — the workhorse layout primitive. Sets full-width background +
- * vertical padding, then nests a Container to constrain content width.
- *
- *   <Section bg="orange"><h2>...</h2></Section>
- */
 export function Section({
-  bg = "paper",
+  bg = "page",
   size = "default",
   bare = false,
   className,
+  style,
   children,
   ...props
 }: SectionProps) {
-  const wrapperClasses = cn(
-    BG_CLASS[bg],
-    SIZE_CLASS[size],
-    "px-6 md:px-10",
-    className,
-  );
-
+  const wrapperClasses = cn("section", BG_CLASS[bg], className);
+  const pad = SIZE_PAD[size];
+  const mergedStyle = pad ? { paddingTop: pad, paddingBottom: pad, ...style } : style;
   if (bare) {
     return (
-      <section className={wrapperClasses} {...props}>
+      <section className={wrapperClasses} style={mergedStyle} {...props}>
         {children}
       </section>
     );
   }
-
   return (
-    <section className={wrapperClasses} {...props}>
-      <Container>{children}</Container>
+    <section className={wrapperClasses} style={mergedStyle} {...props}>
+      <div className="wrap">{children}</div>
     </section>
   );
 }

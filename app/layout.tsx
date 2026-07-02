@@ -1,16 +1,26 @@
 import type { Metadata } from "next";
-import { Inter_Tight } from "next/font/google";
+import { Newsreader, Sora } from "next/font/google";
 import { headers } from "next/headers";
 import { Nav } from "@/components/site/nav";
 import { Footer } from "@/components/site/footer";
 import { brandFromHost, isRxHost, originFromHost } from "@/lib/brand";
 import "./globals.css";
 
-const interTight = Inter_Tight({
+// Sora — the working system voice (UI, labels, eyebrows, body).
+const sora = Sora({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-inter-tight",
-  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-sora",
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+// Newsreader — editorial display (mastheads, headlines, pull quotes).
+const newsreader = Newsreader({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-newsreader",
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
 });
 
 // Host-aware: the same deployment serves becongroup.io and beconrx.io, so
@@ -86,9 +96,13 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const brand = brandFromHost((await headers()).get("host"));
   return (
-    <html lang="en" className={interTight.variable}>
-      <body className="bg-paper text-ink text-body font-sans antialiased">
-        <Nav variant="overlay" brand={brand} />
+    <html
+      lang="en"
+      data-brand={brand}
+      className={`${sora.variable} ${newsreader.variable}`}
+    >
+      <body className="becon-body antialiased">
+        <Nav brand={brand} />
         {children}
         <Footer brand={brand} />
       </body>

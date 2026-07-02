@@ -54,7 +54,10 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-inter-tight)", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+        // Sora — the working system voice (UI, labels, body).
+        sans: ["var(--font-sora)", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+        // Newsreader — editorial display (headlines, pull quotes).
+        display: ["var(--font-newsreader)", "Georgia", "Times New Roman", "serif"],
       },
       fontSize: {
         // (size, [line-height, letter-spacing, weight])
