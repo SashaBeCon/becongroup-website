@@ -94,7 +94,12 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const brand = brandFromHost((await headers()).get("host"));
+  const hdrs = await headers();
+  // Honor the preview-only ?brand override (set as a header by middleware) so
+  // the surface theme + nav/footer match the page; otherwise choose by host.
+  const override = hdrs.get("x-becon-brand");
+  const brand =
+    override === "rx" || override === "group" ? override : brandFromHost(hdrs.get("host"));
   return (
     <html
       lang="en"

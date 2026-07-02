@@ -9,10 +9,22 @@ import { NextResponse, type NextRequest } from "next/server";
  * redirect www → apex — the two directions would form an infinite loop.
  */
 export function middleware(req: NextRequest) {
-  const { pathname } = req.nextUrl;
+  const { pathname, searchParams } = req.nextUrl;
 
   if (pathname === "/rx" || pathname.startsWith("/rx/")) {
     return NextResponse.redirect("https://www.beconrx.io/", 301);
+  }
+
+  // Preview-only brand override. A Vercel preview URL is neither production
+  // domain, so ?brand=rx / ?brand=group lets you view either site. We pass it
+  // to the layout via a request header so the surface theme, nav, footer, and
+  // page content all switch together. Real domains never carry ?brand, so this
+  // is completely inert in production.
+  const brand = searchParams.get("brand");
+  if (brand === "rx" || brand === "group") {
+    const headers = new Headers(req.headers);
+    headers.set("x-becon-brand", brand);
+    return NextResponse.next({ request: { headers } });
   }
 
   return NextResponse.next();
