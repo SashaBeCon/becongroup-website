@@ -413,14 +413,12 @@ html {
   .mcard h4 { font-family: var(--font-display); font-weight: 600; font-size: 22px; margin: 0 0 10px; color: var(--ink-strong); }
   .mcard p { margin: 0; font-size: 13.5px; line-height: 1.58; color: var(--muted); }
 
-  /* ─── Engagement rows ─── */
-  .engage { margin-top: 40px; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: var(--surface); box-shadow: 0 18px 40px -30px rgba(16, 33, 60, 0.3); }
-  .erow { display: flex; align-items: center; gap: 22px; padding: 24px 28px; border-bottom: 1px solid var(--line-soft); transition: background 0.18s ease; }
-  .erow:last-child { border-bottom: none; }
-  .erow:hover { background: var(--surface-2); }
-  .erow .en { font-family: var(--font-display); font-weight: 600; font-size: 26px; color: var(--blue); min-width: 52px; }
-  .erow .et { font-family: var(--font-display); font-weight: 600; font-size: 22px; color: var(--ink-strong); }
-  .erow .arr { margin-left: auto; color: var(--faint); font-size: 18px; }
+  /* ─── Engagements — numbered capability tiles (no dangling links) ─── */
+  .engage { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; margin-top: 44px; }
+  .etile { position: relative; display: flex; flex-direction: column; gap: 14px; min-height: 158px; padding: 22px 20px 24px; background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--blue); border-radius: var(--r-card); box-shadow: 0 1px 2px rgba(16, 33, 60, 0.04), 0 16px 30px -26px rgba(16, 33, 60, 0.22); transition: transform 0.18s ease, border-color 0.18s ease; }
+  .etile:hover { transform: translateY(-3px); border-color: var(--blue-2); }
+  .etile .en { font-family: var(--font-system); font-weight: 800; letter-spacing: 0.16em; font-size: 12px; color: var(--blue); font-variant-numeric: tabular-nums; }
+  .etile .et { margin-top: auto; font-family: var(--font-display); font-weight: 600; font-size: 18px; line-height: 1.18; color: var(--ink-strong); }
 
   /* ─── "Why" dark band (fixed dark regardless of surface) ─── */
   .band-dark {
@@ -495,5 +493,5 @@ html {
   .h2 { font-size: 30px; }
   .close h2 { font-size: 32px; }
   .principle .quote { font-size: 26px; }
-  .erow .et { font-size: 18px; }
+  .etile { min-height: 0; }
 }

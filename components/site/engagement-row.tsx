@@ -2,15 +2,17 @@ interface EngagementRowProps {
   items: { number: string; title: string }[];
 }
 
-/** Numbered engagement rows — one connected model, five ways in. */
+/**
+ * Engagement tiles — a numbered set of capabilities. Deliberately not links
+ * (no trailing arrows): "engage one capability or the full model."
+ */
 export function EngagementRow({ items }: EngagementRowProps) {
   return (
     <div className="engage">
       {items.map((it) => (
-        <div className="erow" key={it.number}>
+        <div className="etile" key={it.number}>
           <span className="en">{it.number}</span>
-          <span className="et">{it.title}</span>
-          <span className="arr" aria-hidden="true">→</span>
+          <h4 className="et">{it.title}</h4>
         </div>
       ))}
     </div>
