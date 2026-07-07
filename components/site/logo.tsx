@@ -9,21 +9,21 @@ interface LogoProps {
 }
 
 /**
- * Wordmark logo — the updated BeCon graphic + qualifier. The dark-surface
- * mark (white "Be") is used on BeConGroup's dark nav; the light-surface mark
- * (navy "Be") on BeConRx's light nav.
+ * Wordmark logo. BeConGroup uses the white "BeCon" wordmark on its dark nav/
+ * footer; BeConRx uses the dark-ink "BeConRx" wordmark on its light surfaces.
+ * The wordmarks are self-contained, so no separate text qualifier is rendered.
  */
 export function Logo({ brand = "group", href = "/", className }: LogoProps) {
-  const src =
-    brand === "rx" ? "/becon-logo-light-surface.png" : "/becon-logo-dark-surface.png";
-  const qualifier = brand === "rx" ? "Rx" : "Group";
-  const label = brand === "rx" ? "BeCon Rx" : "BeCon Group";
+  const isRx = brand === "rx";
+  const src = isRx ? "/becon-rx-on-light.svg" : "/becon-on-dark.svg";
+  const label = isRx ? "BeCon Rx" : "BeCon Group";
+  // Width is sized for a 26px-tall logo; CSS controls the height, this keeps the aspect ratio.
+  const width = isRx ? 97 : 89;
 
   const inner = (
     <span className={`brand ${className ?? ""}`} aria-label={label}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={src} alt="BeCon" width={71} height={26} />
-      <span className="q">{qualifier}</span>
+      <img src={src} alt={label} width={width} height={26} />
     </span>
   );
 
