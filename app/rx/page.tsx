@@ -128,14 +128,14 @@ export default function RxPage() {
             Strategic platforms, programs, and <span className="em">market-ready content.</span>
           </h2>
           <p className="body-text" style={{ maxWidth: "660px", marginTop: "16px" }}>
-            Actionable outputs, built through one connected model — from scientific foundation to
+            Actionable outputs are built through one connected model, from scientific foundation to
             market-ready activation.
           </p>
-          <div className="build cols-4">
-            <BuildColumn heading="Medical Signal" bullet="blue" items={["Scientific narrative platform", "HCP engagement content", "Expert insight development", "Evidence-to-strategy brief"]} />
-            <BuildColumn heading="Brand Strategy" bullet="blue" items={["Positioning & brand narrative", "Stakeholder & audience segmentation", "Messaging architecture", "Launch & lifecycle plan"]} />
-            <BuildColumn heading="Creative Intelligence" bullet="blue" items={["Engagement platform", "Content & experience architecture", "HCP & patient journey design", "Modular content system"]} />
-            <BuildColumn heading="Production & Adaptation" bullet="orange" items={["Modular asset development", "Content adaptation & versioning", "Scientific accuracy checks", "Content production"]} />
+          <div className="build cols-4 cards">
+            <BuildColumn heading="Medical Signal" bullet="orange" items={["Scientific narrative platform", "HCP scientific engagement content", "Expert insight development", "Evidence-to-strategy brief"]} />
+            <BuildColumn heading="Brand Strategy" bullet="orange" items={["Positioning & brand narrative", "Stakeholder & audience segmentation", "Messaging architecture", "Launch & lifecycle plan"]} />
+            <BuildColumn heading="Creative Intelligence" bullet="orange" items={["Engagement platform", "Content & experience architecture", "HCP & patient journey design", "Modular content system"]} />
+            <BuildColumn heading="Market Activation" bullet="orange" accent items={["Modular asset development", "Content adaptation & versioning", "Scientific accuracy checks", "Content production"]} />
           </div>
         </div>
       </section>
@@ -164,7 +164,7 @@ export default function RxPage() {
               { title: "Designed to reduce loss at handoffs", body: "Signal, strategy, creative, production, and activation stay connected." },
               { title: "Faster evidence-to-engagement", body: "Evidence and framing are settled before execution begins." },
               { title: "A modern operating model, with group backing", body: "Senior specialists and connected systems run a modern operating discipline, backed by BeCon Group." },
-              { title: "Built around the outcomes that deliver the opportunity", body: "We define the outcomes first: narrative clarity, engagement readiness, and content usability. Then we build to them.", span2: true },
+              { title: "Built around the outcomes that deliver the opportunity", body: "We define the outcomes first: narrative clarity, engagement readiness, and content usability. Then we build to them." },
             ]}
           />
         </div>

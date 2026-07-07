@@ -381,6 +381,10 @@ html {
   .build.cols-4 { grid-template-columns: repeat(4, 1fr); }
   .buildcol { background: var(--surface); }
   .buildcol .bh { padding: 20px 24px; border-bottom: 1px solid var(--line-soft); font-family: var(--font-display); font-weight: 600; font-size: 20px; color: var(--ink-strong); }
+  /* Separated-card variant (Rx "What We Deliver") — overrides the hairline grid. */
+  .build.cards { background: transparent; border: none; border-radius: 0; gap: 20px; overflow: visible; }
+  .build.cards .buildcol { border: 1px solid var(--line); border-radius: var(--r-card); overflow: hidden; box-shadow: 0 1px 2px rgba(16, 33, 60, 0.04), 0 18px 34px -26px rgba(16, 33, 60, 0.22); }
+  .build.cards .buildcol.accent .bh { background: linear-gradient(180deg, rgba(232, 93, 6, 0.09), var(--surface)); }
 
   /* ─── Focal-burst principle ─── */
   .principle { position: relative; background: var(--floor); overflow: hidden; }
@@ -436,11 +440,11 @@ html {
   .stat .v { font-family: var(--font-display); font-weight: 600; font-size: 56px; line-height: 1; color: var(--ink-strong); }
   .stat.hl .v { color: var(--energy); }
   .stat .k { font-size: 13px; color: var(--muted); margin-top: 8px; max-width: 150px; }
-  .reasons { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
-  .reason { background: var(--surface); padding: 24px 26px; }
-  .reason h4 { font-family: var(--font-system); font-weight: 700; font-size: 15px; margin: 0 0 6px; color: var(--ink-strong); }
-  .reason p { margin: 0; font-size: 13.5px; line-height: 1.55; color: var(--muted); }
-  .reason.span2 { grid-column: 1 / -1; }
+  /* Reasons — separated cards in one row (Rx "Why BeCon Rx", v2.1). */
+  .reasons { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+  .reason { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-card); padding: 22px 20px; }
+  .reason h4 { font-family: var(--font-system); font-weight: 700; font-size: 14.5px; line-height: 1.35; margin: 0 0 10px; color: var(--ink-strong); }
+  .reason p { margin: 0; font-size: 12.5px; line-height: 1.55; color: var(--muted); }
 
   /* ─── Fluency ─── */
   .fluency { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; }
