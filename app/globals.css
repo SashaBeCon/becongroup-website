@@ -423,6 +423,7 @@ html {
   .etile:hover { transform: translateY(-3px); border-color: var(--blue-2); }
   .etile .en { font-family: var(--font-system); font-weight: 800; letter-spacing: 0.16em; font-size: 12px; color: var(--blue); font-variant-numeric: tabular-nums; }
   .etile .et { margin-top: auto; font-family: var(--font-display); font-weight: 600; font-size: 18px; line-height: 1.18; color: var(--ink-strong); }
+  .etile .ed { margin: 10px 0 0; font-size: 12.5px; line-height: 1.55; color: var(--muted); }
 
   /* ─── "Why" dark band (fixed dark regardless of surface) ─── */
   .band-dark {

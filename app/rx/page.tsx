@@ -11,7 +11,7 @@ import { CloseCta } from "@/components/site/close-cta";
 export const metadata: Metadata = {
   title: "BeConRx — Where medical signal becomes market impact",
   description:
-    "A division of BeConGroup. We turn complex medical, market, and customer insights into brand strategy, creative intelligence, and activation that drive meaningful outcomes.",
+    "A division of BeConGroup. We turn complex medical, market, and audience signals into brand strategy, creative intelligence, and activation. One connected model drives measurable outcomes.",
 };
 
 export default function RxPage() {
@@ -28,7 +28,7 @@ export default function RxPage() {
             Becomes <span className="orange">Market Impact</span>
           </>
         }
-        subtitle="We turn complex medical, market, and customer insights into brand strategy, creative intelligence, and activation that drive meaningful outcomes."
+        subtitle="We turn complex medical, market, and audience signals into brand strategy, creative intelligence, and activation. One connected model drives measurable outcomes."
         primaryCta={{ href: "/contact", label: "Start the conversation" }}
         secondaryCta={{ href: "#model", label: "See the model" }}
       />
@@ -38,7 +38,7 @@ export default function RxPage() {
         <div className="wrap">
           <div className="eyebrow">
             <i />
-            <b>The Model, in one line</b>
+            <b>The Model · From Signal to Brand Advantage</b>
           </div>
           <h2 className="h2" style={{ maxWidth: "680px", marginBottom: "44px" }}>
             Signal-to-Outcomes delivers targeted brand advantage.
@@ -48,17 +48,17 @@ export default function RxPage() {
               {
                 kicker: "Where it starts",
                 title: "Medical Signal",
-                desc: "What the market weighs first — clinical evidence, expert insight, and outcomes.",
+                desc: "Clinical evidence, expert insight, and outcomes data are the signals the market weighs first.",
               },
               {
-                kicker: "The model",
-                title: "Brand Strategy & Creative",
-                desc: "Market, competitive, and audience signals shaped into strategy, activation, and content systems.",
+                kicker: "Where BeCon Rx operates",
+                title: "Brand Strategy & Creative Intelligence",
+                desc: "Market, competitive, and audience signals are shaped into strategy, creative intelligence, and content systems.",
               },
               {
                 kicker: "Where it lands",
                 title: "Market Activation",
-                desc: "Communications built to drive outcomes.",
+                desc: "Communications are built to drive measurable outcomes.",
               },
             ]}
           />
@@ -83,8 +83,8 @@ export default function RxPage() {
             end.
           </p>
           <div className="model">
-            <ModelCard number="01" title="Medical Signal" tc="#5B86E8" body="Clinical evidence, expert insight, and outcomes are translated into a clear foundation for brand strategy." />
-            <ModelCard number="02" title="Brand Strategy" tc="#2366E8" body="Market, competitive, and audience signals are shaped into the opportunity. The result is positioning and a go-to-market strategy." />
+            <ModelCard number="01" title="Medical Signal" tc="#5B86E8" body="Clinical evidence, expert insight, and outcomes data are translated into a clear foundation for brand strategy." />
+            <ModelCard number="02" title="Brand Strategy" tc="#2366E8" body="Market, competitive, and audience signals are shaped into a defined market opportunity. The result is positioning and a go-to-market strategy." />
             <ModelCard number="03" title="Creative Intelligence" tc="#E85D06" badge="The Rx Difference" body="This is creative built on signal. Brand strategy becomes a brand plan, content systems, and experiences that carry the evidence and learn from engagement." />
             <ModelCard number="04" title="Market Activation" tc="#8FA9D9" body="Agile, market-ready communications are built for execution, consistency, and measurable brand outcomes." />
           </div>
@@ -102,16 +102,16 @@ export default function RxPage() {
             Five engagements. <span className="em">One connected model.</span>
           </h2>
           <p className="body-text" style={{ maxWidth: "640px", marginTop: "16px" }}>
-            Engage one capability or the full model — each designed to connect signal, strategy,
-            activation, and outcomes.
+            Start with one engagement or run the full model. Each is designed to connect signal,
+            strategy, activation, and outcomes.
           </p>
           <EngagementRow
             items={[
-              { number: "01", title: "Scientific Narrative Platform" },
-              { number: "02", title: "Launch & Lifecycle Strategy" },
-              { number: "03", title: "HCP Omnichannel Engagement" },
-              { number: "04", title: "Global-to-Local Activation" },
-              { number: "05", title: "Content Production & Adaptation" },
+              { number: "01", title: "Scientific Narrative Platform", desc: "One evidence architecture puts medical, marketing, and access teams on the same story." },
+              { number: "02", title: "Launch & Lifecycle Strategy", desc: "The commercial arc runs from pre-launch signal through lifecycle, sequenced with decision triggers." },
+              { number: "03", title: "HCP Engagement & Experience", desc: "Every interaction is orchestrated around how HCPs actually decide, across every channel." },
+              { number: "04", title: "Global-to-Local Activation", desc: "Global strategy is built to survive contact with local markets." },
+              { number: "05", title: "Content Production & Adaptation", desc: "Modular, governed production scales without the review bottleneck." },
             ]}
           />
         </div>
@@ -150,7 +150,7 @@ export default function RxPage() {
           <h2 className="h2">
             Nimble specialist model.{" "}
             <span style={{ fontStyle: "italic", color: "var(--peach)" }}>
-              Senior integration. Market-ready.
+              Senior-led integration. Market-ready.
             </span>
           </h2>
           <WhyBlock
@@ -160,11 +160,11 @@ export default function RxPage() {
               { value: "1", label: "Connected model", hl: true },
             ]}
             reasons={[
-              { title: "Senior partners in the work, brief to delivery", body: "Director-level leadership stays on the work." },
-              { title: "Designed to reduce loss at handoffs", body: "Signal, strategy, creative, production, and activation stay connected." },
+              { title: "Senior partners in the work", body: "Partner-level leadership stays from brief to delivery." },
+              { title: "Designed to reduce loss at handoffs", body: "Signal, strategy, creative intelligence, production, and activation stay connected." },
               { title: "Faster evidence-to-engagement", body: "Evidence and framing are settled before execution begins." },
               { title: "A modern operating model, with group backing", body: "Senior specialists and connected systems run a modern operating discipline, backed by BeCon Group." },
-              { title: "Built around the outcomes that deliver the opportunity", body: "We define the outcomes first: narrative clarity, engagement readiness, and content usability. Then we build to them." },
+              { title: "We define the outcomes first", body: "Then we build to narrative clarity, engagement readiness, and content usability." },
             ]}
           />
         </div>
@@ -201,10 +201,10 @@ export default function RxPage() {
         title={
           <>
             Connect your brand, evidence, and <span className="orange">commercial reality</span> to
-            the outcomes that drive results.
+            measurable outcomes through the Signal-to-Outcomes model.
           </>
         }
-        subtitle="Medical Signal → Brand Strategy → Market Activation → Outcomes."
+        subtitle="Medical Signal → Brand Strategy → Creative Intelligence → Market Activation → Outcomes"
         primaryCta={{ href: "/contact", label: "Start the conversation" }}
       />
     </main>

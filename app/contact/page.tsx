@@ -13,18 +13,18 @@ export default function ContactPage() {
     <main>
       <Section bg="paper" size="lg">
         <SectionHeader
-          eyebrow="Start a conversation"
+          eyebrow="Start the conversation"
           title={
             <>
               Tell us <em>where you are.</em>
             </>
           }
-          subtitle="Smart intent form lands in task #8. Until then, the fastest path is direct email."
+          subtitle="Whether you are pre-launch, in market, or scaling a portfolio, the fastest path is a direct note."
           size="lg"
         />
         <div className="mt-10 flex flex-wrap gap-4">
-          <Button href="mailto:info@becongroup.io" variant="accent" size="lg" withArrow>
-            Email info@becongroup.io
+          <Button href="mailto:info@beconrx.io" variant="accent" size="lg" withArrow>
+            Email info@beconrx.io
           </Button>
           <Button href="/" variant="ghost" size="lg">
             Back to home
