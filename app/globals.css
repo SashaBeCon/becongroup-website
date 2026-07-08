@@ -326,6 +326,82 @@ html {
   .beam.ab { background: linear-gradient(90deg, var(--blue-2), var(--blue)); }
   .beam.bc { background: linear-gradient(90deg, var(--blue), var(--energy)); }
 
+  /* ─── Pipeline rail — convergence animation ───────────────────
+     JS (SignalStrip) adds `.play` when the rail scrolls into view.
+     The light sweeps start → system → lands once, then the landing
+     dot breathes. All motion is gated behind `.play`; with JS off,
+     the rail renders in its normal static state. The global
+     prefers-reduced-motion rule neutralises these animations. */
+  .rail-track .node .dot { position: relative; }
+  .rail-track .beam { position: relative; overflow: visible; }
+  .rail-track .beam::after {
+    content: "";
+    position: absolute;
+    top: -3.5px;
+    left: 0;
+    width: 9px;
+    height: 9px;
+    border-radius: var(--r-full);
+    background: #fff;
+    box-shadow: 0 0 12px 3px rgba(232, 93, 6, 0.7), 0 0 5px 1px var(--blue);
+    opacity: 0;
+  }
+  .rail-track .node.c .dot::after {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border-radius: var(--r-full);
+    box-shadow: 0 0 0 0 rgba(232, 93, 6, 0);
+  }
+
+  @keyframes rail-dot {
+    0% { transform: scale(0.25); opacity: 0.12; }
+    60% { transform: scale(1.28); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  @keyframes rail-beam {
+    from { clip-path: inset(0 100% 0 0); }
+    to { clip-path: inset(0 0 0 0); }
+  }
+  @keyframes rail-head {
+    0% { left: 0; opacity: 0; }
+    12% { opacity: 1; }
+    88% { opacity: 1; }
+    100% { left: 100%; opacity: 0; }
+  }
+  @keyframes rail-rise {
+    from { opacity: 0; transform: translateY(9px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes rail-breathe {
+    0%, 100% { box-shadow: 0 0 6px 1px rgba(232, 93, 6, 0.18), 0 0 0 5px rgba(232, 93, 6, 0.1); }
+    50% { box-shadow: 0 0 20px 4px rgba(232, 93, 6, 0.48), 0 0 0 9px rgba(232, 93, 6, 0.18); }
+  }
+
+  .rail-track.play .node .dot { animation: rail-dot 0.55s cubic-bezier(0.4, 0, 0.2, 1) both; }
+  .rail-track.play .node.a .dot { animation-delay: 0s; }
+  .rail-track.play .node.b .dot { animation-delay: 0.85s; }
+  .rail-track.play .node.c .dot { animation-delay: 1.6s; }
+  .rail-track.play .node .l,
+  .rail-track.play .node .t,
+  .rail-track.play .node p { animation: rail-rise 0.5s cubic-bezier(0.4, 0, 0.2, 1) both; }
+  .rail-track.play .node.a .l { animation-delay: 0.05s; }
+  .rail-track.play .node.a .t { animation-delay: 0.12s; }
+  .rail-track.play .node.a p { animation-delay: 0.2s; }
+  .rail-track.play .node.b .l { animation-delay: 0.9s; }
+  .rail-track.play .node.b .t { animation-delay: 0.97s; }
+  .rail-track.play .node.b p { animation-delay: 1.05s; }
+  .rail-track.play .node.c .l { animation-delay: 1.65s; }
+  .rail-track.play .node.c .t { animation-delay: 1.72s; }
+  .rail-track.play .node.c p { animation-delay: 1.8s; }
+  .rail-track.play .beam { animation: rail-beam 0.6s cubic-bezier(0.4, 0, 0.2, 1) both; }
+  .rail-track.play .beam::after { animation: rail-head 0.62s linear both; }
+  .rail-track.play .beam.ab,
+  .rail-track.play .beam.ab::after { animation-delay: 0.3s; }
+  .rail-track.play .beam.bc,
+  .rail-track.play .beam.bc::after { animation-delay: 1.05s; }
+  .rail-track.play .node.c .dot::after { animation: rail-breathe 3.8s ease-in-out 1.9s infinite; }
+
   /* ─── Grid + generic cards ─── */
   .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
   .stack { display: flex; flex-direction: column; gap: 12px; }
@@ -487,6 +563,14 @@ html {
   .beam { width: 2px; height: 28px; flex: none; margin: 0 auto; }
   .beam.ab { background: linear-gradient(180deg, var(--blue-2), var(--blue)); }
   .beam.bc { background: linear-gradient(180deg, var(--blue), var(--energy)); }
+  /* Stacked rail: sweep the beam top→bottom; the travelling head
+     is only meaningful on the horizontal layout, so hide it. */
+  @keyframes rail-beam-v {
+    from { clip-path: inset(0 0 100% 0); }
+    to { clip-path: inset(0 0 0 0); }
+  }
+  .rail-track.play .beam { animation-name: rail-beam-v; }
+  .rail-track.play .beam::after { display: none; }
   .disciplines,
   .process,
   .build,
