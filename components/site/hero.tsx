@@ -45,7 +45,6 @@ export function Hero({
       {brand === "group" ? <div className="glow" /> : null}
       <div className="inner">
         <div className="copy">
-          <div className="rule" />
           <div className="eyebrow">
             <i />
             <b>{eyebrow}</b>

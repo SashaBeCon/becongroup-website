@@ -5,6 +5,7 @@ import { EntryCard } from "@/components/site/entry-card";
 import { BuildColumn } from "@/components/site/build-column";
 import { GovernanceBar } from "@/components/site/governance-bar";
 import { CloseCta } from "@/components/site/close-cta";
+import { Reveal } from "@/components/site/reveal";
 import { Card } from "@/components/ui/card";
 import { headers } from "next/headers";
 import type { Metadata } from "next";
@@ -83,7 +84,7 @@ function GroupHome() {
       />
 
       {/* ───── PIPELINE RAIL ──────────────────────────────────── */}
-      <section className="section sec-band">
+      <section className="section sx-white">
         <div className="wrap">
           <div className="eyebrow">
             <i />
@@ -103,7 +104,7 @@ function GroupHome() {
       </section>
 
       {/* ───── THE LANDSCAPE ──────────────────────────────────── */}
-      <section className="section sec-page" id="landscape">
+      <section className="section sx-ice" id="landscape">
         <div className="wrap grid-2">
           <div>
             <div className="eyebrow blue">
@@ -119,7 +120,7 @@ function GroupHome() {
               convert signal into sustained commercial performance.
             </blockquote>
           </div>
-          <div className="stack">
+          <Reveal className="stack">
             <Card>
               <h4>Strategy that activates</h4>
               <p>Commercial strategy is most powerful when it&apos;s designed to move — directly connected to experience architecture and the AI systems that execute it in the field.</p>
@@ -136,12 +137,12 @@ function GroupHome() {
               <h4>The window is compressing</h4>
               <p>First-mover advantage now belongs to organizations that connect intelligence, experience, and execution before launch — not in response to the first quarter&apos;s data.</p>
             </Card>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* ───── THE SYSTEM ─────────────────────────────────────── */}
-      <section className="section sec-band" id="system">
+      <section className="section sx-navy" id="system">
         <div className="wrap">
           <div className="eyebrow">
             <i />
@@ -156,7 +157,7 @@ function GroupHome() {
             Commercial strategy, experience design, and governed AI — designed together, delivered by
             one team, measured against one outcome.
           </p>
-          <div className="disciplines">
+          <Reveal className="disciplines">
             <Pillar
               number="01"
               title="Commercial Precision"
@@ -181,12 +182,12 @@ function GroupHome() {
               bullet="orange"
               items={["Predictive cohort & signal intelligence", "Governed Machine Learning loop design", "Agentic workflow design & governance"]}
             />
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* ───── THE BECON PRINCIPLE ────────────────────────────── */}
-      <section className="section principle">
+      <section className="section principle sx-deep">
         <span className="burst" />
         <GovernanceBar
           label="The BeCon Principle"
@@ -201,7 +202,7 @@ function GroupHome() {
       </section>
 
       {/* ───── HOW WE WORK ────────────────────────────────────── */}
-      <section className="section sec-band" id="how">
+      <section className="section sx-white" id="how">
         <div className="wrap">
           <div className="eyebrow">
             <i />
@@ -222,7 +223,7 @@ function GroupHome() {
       </section>
 
       {/* ───── WHAT WE BUILD ──────────────────────────────────── */}
-      <section className="section sec-page" id="build">
+      <section className="section sx-ice" id="build">
         <div className="wrap">
           <div className="eyebrow">
             <i />
@@ -235,11 +236,11 @@ function GroupHome() {
             Every engagement ends with something you own, operate, and build on — across oncology,
             rare disease, specialty, CNS, and cell &amp; gene therapy.
           </p>
-          <div className="build">
+          <Reveal className="build">
             <BuildColumn heading="Commercial Precision" bullet="blue" items={["Signal Audit & Cohort Map", "Launch Excellence Assessment", "Commercial Opportunity Architecture", "Value Architecture & GTM Blueprint", "Market Segmentation Design", "Access & Lifecycle Architecture"]} />
             <BuildColumn heading="Experience Design" bullet="orange" items={["HCP Journey Architecture", "Patient Pathway Design", "Omnichannel Engagement Blueprint", "Message Architecture Framework", "Moments-That-Matter Mapping", "Engagement Measurement System"]} />
             <BuildColumn heading="Governed AI" bullet="orange" items={["AI Opportunity Map & Prioritization", "Governed Machine Learning Loop Design", "Agentic Workflow Design", "AI Architecture Blueprint", "AI Governance Framework", "Outcomes Attribution Model"]} />
-          </div>
+          </Reveal>
         </div>
       </section>
 
