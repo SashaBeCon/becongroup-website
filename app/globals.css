@@ -378,29 +378,29 @@ html {
     50% { box-shadow: 0 0 20px 4px rgba(232, 93, 6, 0.48), 0 0 0 9px rgba(232, 93, 6, 0.18); }
   }
 
-  .rail-track.play .node .dot { animation: rail-dot 0.55s cubic-bezier(0.4, 0, 0.2, 1) both; }
+  .rail-track.play .node .dot { animation: rail-dot 0.8s cubic-bezier(0.4, 0, 0.2, 1) both; }
   .rail-track.play .node.a .dot { animation-delay: 0s; }
-  .rail-track.play .node.b .dot { animation-delay: 0.85s; }
-  .rail-track.play .node.c .dot { animation-delay: 1.6s; }
+  .rail-track.play .node.b .dot { animation-delay: 1.5s; }
+  .rail-track.play .node.c .dot { animation-delay: 3s; }
   .rail-track.play .node .l,
   .rail-track.play .node .t,
-  .rail-track.play .node p { animation: rail-rise 0.5s cubic-bezier(0.4, 0, 0.2, 1) both; }
-  .rail-track.play .node.a .l { animation-delay: 0.05s; }
-  .rail-track.play .node.a .t { animation-delay: 0.12s; }
-  .rail-track.play .node.a p { animation-delay: 0.2s; }
-  .rail-track.play .node.b .l { animation-delay: 0.9s; }
-  .rail-track.play .node.b .t { animation-delay: 0.97s; }
-  .rail-track.play .node.b p { animation-delay: 1.05s; }
-  .rail-track.play .node.c .l { animation-delay: 1.65s; }
-  .rail-track.play .node.c .t { animation-delay: 1.72s; }
-  .rail-track.play .node.c p { animation-delay: 1.8s; }
-  .rail-track.play .beam { animation: rail-beam 0.6s cubic-bezier(0.4, 0, 0.2, 1) both; }
-  .rail-track.play .beam::after { animation: rail-head 0.62s linear both; }
+  .rail-track.play .node p { animation: rail-rise 0.9s cubic-bezier(0.4, 0, 0.2, 1) both; }
+  .rail-track.play .node.a .l { animation-delay: 0.1s; }
+  .rail-track.play .node.a .t { animation-delay: 0.25s; }
+  .rail-track.play .node.a p { animation-delay: 0.4s; }
+  .rail-track.play .node.b .l { animation-delay: 1.6s; }
+  .rail-track.play .node.b .t { animation-delay: 1.75s; }
+  .rail-track.play .node.b p { animation-delay: 1.9s; }
+  .rail-track.play .node.c .l { animation-delay: 3.1s; }
+  .rail-track.play .node.c .t { animation-delay: 3.25s; }
+  .rail-track.play .node.c p { animation-delay: 3.4s; }
+  .rail-track.play .beam { animation: rail-beam 1s cubic-bezier(0.4, 0, 0.2, 1) both; }
+  .rail-track.play .beam::after { animation: rail-head 1s linear both; }
   .rail-track.play .beam.ab,
-  .rail-track.play .beam.ab::after { animation-delay: 0.3s; }
+  .rail-track.play .beam.ab::after { animation-delay: 0.55s; }
   .rail-track.play .beam.bc,
-  .rail-track.play .beam.bc::after { animation-delay: 1.05s; }
-  .rail-track.play .node.c .dot::after { animation: rail-breathe 3.8s ease-in-out 1.9s infinite; }
+  .rail-track.play .beam.bc::after { animation-delay: 2.05s; }
+  .rail-track.play .node.c .dot::after { animation: rail-breathe 3.8s ease-in-out 4.3s infinite; }
 
   /* ─── Grid + generic cards ─── */
   .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }

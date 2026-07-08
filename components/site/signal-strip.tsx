@@ -15,7 +15,7 @@ interface SignalStripProps {
 
 /** Idle re-sweep cadence (ms) while the rail stays in view. Set to 0 to
  *  disable the idle loop and rely solely on replay-on-re-entry. */
-const IDLE_RESWEEP_MS = 6000;
+const IDLE_RESWEEP_MS = 10000;
 
 /**
  * Pipeline rail — the convergence spine. Three node dots joined by gradient
