@@ -518,6 +518,13 @@ html {
   .build.cards { background: transparent; border: none; border-radius: 0; gap: 20px; overflow: visible; }
   .build.cards .buildcol { border: 1px solid var(--line); border-radius: var(--r-card); overflow: hidden; box-shadow: 0 1px 2px rgba(16, 33, 60, 0.04), 0 18px 34px -26px rgba(16, 33, 60, 0.22); }
   .build.cards .buildcol.accent .bh { background: linear-gradient(180deg, rgba(232, 93, 6, 0.09), var(--surface)); }
+  /* Rx "What We Deliver": orange header band that intensifies across the row
+     (peach → deep orange, card 1 → 4). Bodies stay white; dark header text
+     keeps AA contrast on every step. Overrides the .accent rule above on card 4. */
+  [data-brand="rx"] .build.cards.cols-4 .buildcol:nth-child(1) .bh { background: linear-gradient(180deg, #fbdcc6, #f8c6a2); }
+  [data-brand="rx"] .build.cards.cols-4 .buildcol:nth-child(2) .bh { background: linear-gradient(180deg, #f6b98d, #f3a572); }
+  [data-brand="rx"] .build.cards.cols-4 .buildcol:nth-child(3) .bh { background: linear-gradient(180deg, #f19a5c, #ee823d); }
+  [data-brand="rx"] .build.cards.cols-4 .buildcol:nth-child(4) .bh { background: linear-gradient(180deg, #ec7636, #e85d06); }
 
   /* ─── Focal-burst principle ─── */
   .principle { position: relative; background: var(--floor); overflow: hidden; }

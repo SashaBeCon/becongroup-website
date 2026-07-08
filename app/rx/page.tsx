@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/site/hero";
 import { SignalStrip } from "@/components/site/signal-strip";
-import { ModelCard } from "@/components/site/model-card";
 import { EngagementRow } from "@/components/site/engagement-row";
 import { BuildColumn } from "@/components/site/build-column";
 import { WhyBlock } from "@/components/site/why-block";
@@ -70,60 +69,41 @@ export default function RxPage() {
       />
 
       {/* ───── PIPELINE RAIL ──────────────────────────────────── */}
-      <section className="section sec-band2">
+      <section className="section sec-band2" id="model">
         <div className="wrap">
           <div className="eyebrow">
             <i />
             <b>The Model · From Signal to Brand Advantage</b>
-          </div>
-          <h2 className="h2" style={{ maxWidth: "680px", marginBottom: "44px" }}>
-            Signal-to-Outcomes delivers targeted brand advantage.
-          </h2>
-          <SignalStrip
-            items={[
-              {
-                kicker: "Where it starts",
-                title: "Medical Signal",
-                desc: "Clinical evidence, expert insight, and outcomes data are the signals the market weighs first.",
-              },
-              {
-                kicker: "Where BeCon Rx operates",
-                title: "Brand Strategy & Creative Intelligence",
-                desc: "Market, competitive, and audience signals are shaped into strategy, creative intelligence, and content systems.",
-              },
-              {
-                kicker: "Where it lands",
-                title: "Market Activation",
-                desc: "Communications are built to drive measurable outcomes.",
-              },
-            ]}
-          />
-        </div>
-      </section>
-
-      {/* ───── THE MODEL (white) ──────────────────────────────── */}
-      <section className="section sec-white" id="model">
-        <div className="wrap">
-          <div className="eyebrow blue">
-            <i />
-            <b>The Model</b>
           </div>
           <h2 className="h2" style={{ maxWidth: "640px" }}>
             One connected model.
             <br />
             <span className="em-focal">From signal to brand advantage.</span>
           </h2>
-          <p className="body-text" style={{ maxWidth: "640px", marginTop: "16px" }}>
+          <p className="body-text" style={{ maxWidth: "640px", marginTop: "16px", marginBottom: "44px" }}>
             Medical signal sets the foundation. Market, competitive, and audience signals shape the
             strategy, activation, and outcomes that follow. The Signal-to-Outcomes model runs end to
             end.
           </p>
-          <Reveal className="model">
-            <ModelCard number="01" title="Medical Signal" tc="#5B86E8" body="Clinical evidence, expert insight, and outcomes data are translated into a clear foundation for brand strategy." />
-            <ModelCard number="02" title="Brand Strategy" tc="#2366E8" body="Market, competitive, and audience signals are shaped into a defined market opportunity. The result is positioning and a go-to-market strategy." />
-            <ModelCard number="03" title="Creative Intelligence" tc="#E85D06" badge="The Rx Difference" body="This is creative built on signal. Brand strategy becomes a brand plan, content systems, and experiences that carry the evidence and learn from engagement." />
-            <ModelCard number="04" title="Market Activation" tc="#8FA9D9" body="Agile, market-ready communications are built for execution, consistency, and measurable brand outcomes." />
-          </Reveal>
+          <SignalStrip
+            items={[
+              {
+                kicker: "Where it starts",
+                title: "Medical Signal",
+                desc: "Clinical evidence, expert insight, and outcomes data are translated into a clear foundation for brand strategy.",
+              },
+              {
+                kicker: "Where BeCon Rx operates",
+                title: "Brand Strategy & Creative Intelligence",
+                desc: "Market, competitive, and audience signals are shaped into a brand strategy, and enveloped in an intelligent feedback loop where evidence and engagement continuously optimize the strategy.",
+              },
+              {
+                kicker: "Where it lands",
+                title: "Market Activation",
+                desc: "Agile, market-ready communications are built for execution, consistency, and measurable brand outcomes.",
+              },
+            ]}
+          />
         </div>
       </section>
 
