@@ -73,9 +73,7 @@ function GroupHome() {
         eyebrow="Biopharma Commercial Consultancy"
         title={
           <>
-            Signal to <span className="orange">outcomes</span>
-            <br />
-            performance.
+            Translate signals into <span className="orange">outcomes</span>
           </>
         }
         subtitle="We connect commercial strategy, experience design, and governed AI into one operating system — so biopharma signal converts into measurable outcomes."
@@ -88,16 +86,16 @@ function GroupHome() {
         <div className="wrap">
           <div className="eyebrow">
             <i />
-            <b>The Convergence Arc</b>
+            <b>The Translation Arc</b>
           </div>
           <h2 className="h2" style={{ maxWidth: "640px", marginBottom: "44px" }}>
             One arc, end to end — signal, system, outcomes.
           </h2>
           <SignalStrip
             items={[
-              { kicker: "Where it starts", title: "Signal", desc: "Claims, beliefs, behavior, market data — structured for commercial use." },
-              { kicker: "Where BeCon operates", title: "System", desc: "One integrated system that converts signal into outcomes — strategy, experience, and governed AI." },
-              { kicker: "Where it lands", title: "Outcomes", desc: "HCP adoption, patient pathways, lifecycle performance." },
+              { kicker: "Where it starts", title: "Noise vs. Signal", desc: "Separate signal from noise across claims, beliefs, behavior, and market data." },
+              { kicker: "Where BeCon operates", title: "System", desc: "Convert that signal into strategy, experience, and governed AI in one integrated system." },
+              { kicker: "Where it lands", title: "Outcomes", desc: "Drive HCP adoption, patient pathways, and lifecycle performance." },
             ]}
           />
         </div>
@@ -169,7 +167,7 @@ function GroupHome() {
             <Pillar
               number="02"
               title="Experience Design"
-              tagline="Journeys designed from outcome to touchpoint."
+              tagline="Journeys and touchpoints aligned to outcomes."
               icon={IconLens}
               bullet="orange"
               items={["HCP journey architecture & design", "Omnichannel engagement strategy", "Patient pathway & adherence design"]}
@@ -216,7 +214,7 @@ function GroupHome() {
           </p>
           <div className="process">
             <EntryCard number="01" when="When the need is strategy" title="Pre-Launch" brings="Signal audit · Cohort intelligence · Launch blueprint. A two-week structured analysis with a clear owned output." output="Signal-to-Launch Blueprint" />
-            <EntryCard number="02" when="When the need is execution" title="Active Launch" brings="Performance diagnostic · Governed AI activation · Outcomes measurement. Plugged into your in-market system without disruption." output="Commercial Performance System" />
+            <EntryCard number="02" when="When the need is execution" title="Active Launch" brings="Performance diagnostic · Governed AI activation · AI workflow solutions · Outcomes measurement. Plugged into your in-market system without disruption." output="Commercial Performance System" />
             <EntryCard number="03" when="When the need is coherence" title="Portfolio Scale" brings="Portfolio signal architecture · AI governance framework · Operating model alignment across multiple assets." output="Intelligence Operating Model" />
           </div>
         </div>
