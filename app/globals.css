@@ -494,8 +494,12 @@ html {
     overflow: hidden;
     margin-top: 44px;
   }
-  .disciplines { grid-template-columns: repeat(3, 1fr); }
-  .disc { background: var(--surface); display: flex; flex-direction: column; }
+  /* Subgrid: the header row + each bullet row share row tracks across all
+     three columns, so rows stay aligned regardless of how the tagline or a
+     bullet wraps. NOTE: assumes every .disc has the same number of children
+     (1 head + 3 items = 4 rows); update repeat(4,…) if that count changes. */
+  .disciplines { grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(4, auto); gap: 0 1px; }
+  .disc { background: var(--surface); display: grid; grid-row: 1 / -1; grid-template-rows: subgrid; }
   .disc-head { padding: 28px 24px 22px; border-bottom: 1px solid var(--line-soft); }
   .disc-head svg { margin-bottom: 16px; }
   .disc-num { font-family: var(--font-system); font-weight: 800; letter-spacing: 0.16em; font-size: 11px; color: var(--faint); margin-bottom: 14px; }
@@ -705,6 +709,9 @@ html {
   .model,
   .fluency,
   .reasons { grid-template-columns: 1fr; }
+  /* Undo the desktop subgrid so discs stack normally when single-column. */
+  .disciplines { grid-template-rows: auto; gap: 1px; }
+  .disc { display: flex; flex-direction: column; grid-row: auto; grid-template-rows: none; }
   .stats { gap: 28px; }
   .h2 { font-size: 30px; }
   .close h2 { font-size: 32px; }
