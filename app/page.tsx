@@ -94,7 +94,7 @@ function GroupHome() {
           <SignalStrip
             items={[
               { kicker: "Where it starts", title: "Noise vs. Signal", desc: "Separate signal from noise across claims, beliefs, behavior, and market data." },
-              { kicker: "Where BeCon operates", title: "System", desc: "Convert that signal into strategy, experience, and governed AI in one integrated system." },
+              { kicker: "Where BeCon operates", title: "Systemic Approach", desc: "Convert that signal into strategy, experience, and governed AI in one integrated system." },
               { kicker: "Where it lands", title: "Outcomes", desc: "Drive HCP adoption, patient pathways, and lifecycle performance." },
             ]}
           />
